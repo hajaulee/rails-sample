@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+  # サインインしているユーザーのみ、アクションにアクセス可能にする
+  before_action :authenticate_user!
+  
+  
   # GET /books
   # GET /books.json
   def index
